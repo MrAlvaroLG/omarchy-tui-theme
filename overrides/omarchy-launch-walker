@@ -1,0 +1,25 @@
+#!/bin/bash
+# Intercepts omarchy-launch-walker calls from omarchy-menu:
+# - Forces full panel size (875×600) for dmenu calls
+# - Uses the TUI omarchy-menu theme for dmenu mode
+
+REAL="$HOME/.local/share/omarchy/bin/omarchy-launch-walker"
+
+if [[ " $* " == *" --dmenu "* ]]; then
+  # Strip width/height/theme args that may be hardcoded, then set panel size + TUI theme
+  ARGS=()
+  skip=0
+  for arg in "$@"; do
+    if [[ $skip -gt 0 ]]; then
+      skip=$((skip - 1))
+      continue
+    fi
+    case "$arg" in
+      --width|--minheight|--maxheight|--height|--theme|-t) skip=1 ;;
+      *) ARGS+=("$arg") ;;
+    esac
+  done
+  exec "$REAL" "${ARGS[@]}" --theme omarchy-menu --width 875 --minheight 600 --maxheight 600
+else
+  exec "$REAL" "$@"
+fi

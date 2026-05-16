@@ -1,0 +1,151 @@
+@import "../../../omarchy/current/theme/walker.css";
+@import "../../../../.local/state/omarchy/toggles/walker.css";
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  color: @text;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons { -gtk-icon-size: 0px; }
+.large-icons  { -gtk-icon-size: 0px; }
+
+/* ── Main container ────────────────────────────────────────── */
+.box-wrapper {
+  background: @base;
+  padding: 14px 18px;
+  border: 1px solid alpha(@border, 0.75);
+  border-radius: 0;
+}
+
+/* ── TUI box-drawing border labels ─────────────────────────── */
+.tui-border {
+  color: alpha(@border, 0.8);
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* ── Search / prompt bar ────────────────────────────────────── */
+.search-container {
+  background: transparent;
+  padding: 3px 2px;
+  min-height: 0;
+}
+
+.input {
+  padding: 4px 2px 4px 10px;
+  caret-color: @text;
+}
+
+.input placeholder {
+  opacity: 0.38;
+  color: @selected-text;
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+/* ── Result list ────────────────────────────────────────────── */
+.content-container {
+  margin: 0 12px;
+}
+
+child {
+  border-radius: 0;
+}
+
+child:hover .item-box {
+  background: alpha(@foreground, 0.04);
+}
+
+child:selected {
+  background: alpha(@foreground, 0.09);
+  border-left: 2px solid alpha(@border, 0.9);
+}
+
+child:selected .item-box * {
+  color: @foreground;
+}
+
+.item-box {
+  padding: 0 6px;
+}
+
+.item-text-box {
+  all: unset;
+  padding: 5px 0;
+  min-height: 12px;
+}
+
+.item-text {
+  font-size: 12px;
+}
+
+.item-subtext {
+  font-size: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.item-image {
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  -gtk-icon-size: 0px;
+  -gtk-icon-transform: scale(0);
+}
+
+/* ── Footer (hidden — hints are in BotBorder label) ─────────── */
+.keybinds {
+  min-height: 0;
+  padding: 0;
+}
+
+.footer-hints {
+  font-size: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.keybind-hints {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Misc ───────────────────────────────────────────────────── */
+.placeholder {
+  padding: 24px 6px;
+  opacity: 0.35;
+  font-size: 12px;
+}
+
+.elephant-hint {
+  opacity: 0.35;
+  padding: 24px 6px;
+  font-size: 12px;
+}
+
+.error {
+  padding: 4px 6px;
+  color: #a06060;
+  font-size: 11px;
+}
