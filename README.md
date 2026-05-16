@@ -4,6 +4,16 @@ Personal [Omarchy](https://omarchy.dev) configuration based on the **Aether** co
 
 > Built on top of [Omarchy](https://github.com/basecamp/omarchy) by Basecamp.
 
+## Quick Install
+
+```bash
+git clone https://github.com/<your-username>/omarchy-tui-theme
+cd omarchy-tui-theme
+./install.sh
+```
+
+> Requires [Omarchy](https://github.com/basecamp/omarchy) to be installed first.
+
 ---
 
 ## Features
