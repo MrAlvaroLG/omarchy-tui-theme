@@ -44,10 +44,29 @@ if [[ "$SKIP_WALKER" == false ]]; then
   mkdir -p "$HOME/.config/walker/themes"
   cp -r "$REPO_DIR/walker/themes/omarchy-default" "$HOME/.config/walker/themes/"
   cp -r "$REPO_DIR/walker/themes/omarchy-menu"    "$HOME/.config/walker/themes/"
-  success "Walker themes installed (omarchy-default, omarchy-menu)"
+  cp -r "$REPO_DIR/walker/themes/omarchy-apps"    "$HOME/.config/walker/themes/"
+  success "Walker themes installed (omarchy-default, omarchy-menu, omarchy-apps)"
 fi
 
-# ── 3. Walker override ────────────────────────────────────────────────────────
+# ── 3. Walker config ──────────────────────────────────────────────────────────
+if [[ "$SKIP_WALKER" == false ]]; then
+  if [[ -f "$HOME/.config/walker/config.toml" ]]; then
+    warn "Walker config already exists at ~/.config/walker/config.toml"
+    echo -n "   Overwrite? [y/N]: "
+    read -r walker_cfg_choice
+    if [[ "${walker_cfg_choice,,}" == "y" ]]; then
+      cp "$REPO_DIR/walker/config.toml" "$HOME/.config/walker/config.toml"
+      success "Walker config installed"
+    else
+      warn "Walker config skipped"
+    fi
+  else
+    cp "$REPO_DIR/walker/config.toml" "$HOME/.config/walker/config.toml"
+    success "Walker config installed"
+  fi
+fi
+
+# ── 5. Walker override ────────────────────────────────────────────────────────
 if [[ "$SKIP_WALKER" == false ]]; then
   info "Installing Walker override..."
   mkdir -p "$HOME/.config/omarchy/overrides"
@@ -56,7 +75,7 @@ if [[ "$SKIP_WALKER" == false ]]; then
   success "Walker override installed"
 fi
 
-# ── 4. Screensaver branding ───────────────────────────────────────────────────
+# ── 6. Screensaver branding ───────────────────────────────────────────────────
 echo ""
 warn "The screensaver ASCII art in branding/screensaver.txt contains the original author's name."
 echo -e "   ${BOLD}Options:${RESET}"
@@ -83,13 +102,14 @@ case "$choice" in
     ;;
 esac
 
-# ── 5. Waybar ─────────────────────────────────────────────────────────────────
+# ── 7. Waybar ─────────────────────────────────────────────────────────────────
 echo ""
 warn "Installing Waybar config will REPLACE your existing ~/.config/waybar/style.css and config.jsonc."
 echo -n "   Install Waybar config? [y/N]: "
 read -r waybar_choice
 
 if [[ "${waybar_choice,,}" == "y" ]]; then
+  mkdir -p "$HOME/.config/waybar"
   cp "$REPO_DIR/waybar/style.css"    "$HOME/.config/waybar/"
   cp "$REPO_DIR/waybar/config.jsonc" "$HOME/.config/waybar/"
   success "Waybar config installed"
@@ -97,7 +117,7 @@ else
   warn "Waybar skipped"
 fi
 
-# ── 6. Activate theme ─────────────────────────────────────────────────────────
+# ── 8. Activate theme ─────────────────────────────────────────────────────────
 echo ""
 info "Activating Aether theme..."
 if command -v omarchy &>/dev/null; then

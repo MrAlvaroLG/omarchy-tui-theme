@@ -1,0 +1,110 @@
+@import "../../../omarchy/current/theme/walker.css";
+@import "../../../../.local/state/omarchy/toggles/walker.css";
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  color: @text;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 0px;
+}
+
+.large-icons {
+  -gtk-icon-size: 0px;
+}
+
+.box-wrapper {
+  background: alpha(@base, 0.97);
+  padding: 14px 18px;
+  border: 2px solid @border;
+}
+.section-legend {
+  opacity: 0.75;
+}
+
+.ascii-box {
+  border: none;
+  padding: 0;
+}
+
+.search-container {
+  background: transparent;
+  margin-bottom: 6px;
+}
+
+.input {
+  padding: 6px 0;
+  margin: 0;
+}
+
+.input placeholder {
+  opacity: 0.55;
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+child:selected .item-box * {
+  color: @foreground;
+}
+
+child:selected {
+  background: alpha(@foreground, 0.08);
+}
+
+.item-box {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.item-text-box {
+  all: unset;
+  padding: 6px 0;
+  min-height: 12px;
+}
+
+.item-subtext {
+  font-size: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.item-image {
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  -gtk-icon-size: 0px;
+  -gtk-icon-transform: scale(0);
+}
+
+.content-container {
+  margin-bottom: 0;
+}
+
+.keybinds {
+  padding: 0;
+}
+
+.footer-hints {
+  opacity: 0.7;
+}
+.keybind-hints {
+  background: transparent;
+  padding: 6px 0 0 0;
+  margin-top: 2px;
+}

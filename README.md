@@ -1,111 +1,163 @@
-# omarchy-tui-theme
+<div align="center">
 
-Personal [Omarchy](https://omarchy.dev) configuration based on the **Aether** colorscheme with full TUI/terminal aesthetic applied across menus, waybar, and the screensaver.
+<br/>
 
-> Built on top of [Omarchy](https://github.com/basecamp/omarchy) by Basecamp.
+```
+░█████╗░███████╗████████╗██╗░░██╗███████╗██████╗░
+██╔══██╗██╔════╝╚══██╔══╝██║░░██║██╔════╝██╔══██╗
+███████║█████╗░░░░░██║░░░███████║█████╗░░██████╔╝
+██╔══██║██╔══╝░░░░░██║░░░██╔══██║██╔══╝░░██╔══██╗
+██║░░██║███████╗░░░██║░░░██║░░██║███████╗██║░░██║
+╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝
+```
 
-## Quick Install
+### omarchy-tui-theme
+
+*A full TUI/terminal aesthetic for [Omarchy](https://github.com/basecamp/omarchy) — dark, sharp, monospaced.*
+
+<br/>
+
+[![Omarchy](https://img.shields.io/badge/built%20for-Omarchy-4b4e55?style=flat-square&labelColor=141515)](https://github.com/basecamp/omarchy)
+[![Theme](https://img.shields.io/badge/colorscheme-Aether-798186?style=flat-square&labelColor=141515)](https://github.com/alvarolg/omarchy-tui-theme)
+[![License](https://img.shields.io/badge/license-MIT-cbc2be?style=flat-square&labelColor=141515)](LICENSE)
+
+<br/>
+
+![Desktop Overview](screenshots/desktop-overview.png)
+
+<br/>
+
+</div>
+
+---
+
+## ⚡ Quick Install
 
 ```bash
-git clone https://github.com/<your-username>/omarchy-tui-theme
+git clone https://github.com/alvarolg/omarchy-tui-theme
 cd omarchy-tui-theme
 ./install.sh
 ```
 
-> Requires [Omarchy](https://github.com/basecamp/omarchy) to be installed first.
+> **Requires** [Omarchy](https://github.com/basecamp/omarchy) to be installed first.
 
 ---
 
-## Features
+## ✨ Features
 
-### 🎨 Aether Theme
-A dark, desaturated colorscheme with warm undertones.
+<table>
+<tr>
+<td width="50%" valign="top">
 
-| Key | Value |
-|-----|-------|
-| Background | `#141515` |
-| Foreground | `#cbc2be` |
-| Accent | `#798186` |
-| Border | `#4b4e55` |
+### 🎨 Aether Colorscheme
 
-Includes config files for: Alacritty, Ghostty, Kitty, Foot, Hyprland, Hyprlock, Mako, Btop, Neovim, VSCode, Waybar, Walker, Wofi, Obsidian, and more.
+Dark, desaturated, and warm. Applied consistently across every app.
 
----
+| Swatch | Role | Hex |
+|--------|------|-----|
+| ![](https://placehold.co/14x14/141515/141515.png) | Background | `#141515` |
+| ![](https://placehold.co/14x14/cbc2be/cbc2be.png) | Foreground | `#cbc2be` |
+| ![](https://placehold.co/14x14/798186/798186.png) | Accent | `#798186` |
+| ![](https://placehold.co/14x14/4b4e55/4b4e55.png) | Border | `#4b4e55` |
+
+Covers: Alacritty · Ghostty · Kitty · Hyprland · Hyprlock · Mako · Btop · Neovim · VSCode · Waybar · Walker · Wofi · Chromium · Zellij · Warp · Zed · Vencord · SwayOSD
+
+</td>
+<td width="50%" valign="top">
 
 ### 🪟 TUI Walker Menus
-Both application launchers are redesigned with a pure terminal/TUI aesthetic:
 
-- **Box-drawing borders** using Unicode characters (`┌ ─ ┐ │ ├ └ ┘`)
-- **Embedded titles** in the top border (`┌─ Apps ─...─┐`, `┌─ Omarchy ─...─┐`)
-- **Separator line** between search input and results (`├──...──┤`)
-- **Keybind legend** in the bottom border (`└─ ↑ ↓ navigate   ↵ select   esc close ──┘`)
-- **Monospaced font**: JetBrainsMono Nerd Font 12px
-- **No border-radius** — sharp terminal look
-- **Horizontal margins** on the results list so the selection highlight doesn't span edge to edge
-- **Padded search input** (`padding-left: 10px`)
-- All borders and ASCII chars share the same muted grey color (`alpha(@border, 0.80)`)
+Pure terminal aesthetic on both launchers.
 
-#### Shortcuts
-| Shortcut | Menu |
-|---|---|
+```
+┌─ Apps ───────────────────────────────┐
+│  Search...                           │
+├──────────────────────────────────────┤
+│  ▌ Firefox                           │
+│  Chromium                            │
+│  Kitty                               │
+│  ...                                 │
+└─ ↑ ↓ navigate  ↵ select  esc close ─┘
+```
+
+- Box-drawing borders with embedded titles
+- Separator line between search and results
+- Keybind legend baked into the bottom border
+- JetBrainsMono Nerd Font · No border-radius
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📊 Waybar
+
+Full status bar in the same TUI language.
+
+- JetBrainsMono Nerd Font throughout
+- Sharp edges, no border-radius anywhere
+- Modules: workspaces · clock · weather · CPU · battery · audio · bluetooth · network · tray · VPN · keyboard · screen recording · idle
+- Custom Omarchy logo button
+  - Left-click → Omarchy menu
+  - Right-click → terminal
+
+</td>
+<td width="50%" valign="top">
+
+### 🖥️ Screensaver
+
+Custom ASCII art splash via `omarchy-branding-screensaver`.
+
+```bash
+# Edit your ASCII art
+omarchy branding screensaver text
+
+# Generate from image
+omarchy branding screensaver image
+
+# Reset to default
+omarchy branding screensaver reset
+```
+
+> The included `screensaver.txt` has **my name**. Replace it with yours.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+**Apps Launcher** — `SUPER + SPACE`
+
+![Apps Launcher](screenshots/apps-launcher.png)
+
+</div>
+
+---
+
+## ⌨️ Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
 | `SUPER + SPACE` | Apps launcher (`omarchy-default` theme) |
 | `SUPER + ALT + SPACE` | Omarchy system menu (`omarchy-menu` theme) |
 
 ---
 
-### 📊 Waybar
-Custom status bar configuration:
+## 🔧 Manual Installation
 
-- **JetBrainsMono Nerd Font** throughout
-- **No border-radius** on any element
-- Modules: workspaces, clock, weather, CPU, battery, audio, bluetooth, network, tray, Windscribe VPN indicator, keyboard layout, screen recording & idle indicators
-- Vertical bar support with adaptive layout
-- Custom Omarchy logo icon button (left-click: Omarchy menu, right-click: terminal)
+<details>
+<summary><strong>Step by step (click to expand)</strong></summary>
 
----
-
-### 🖥️ Screensaver
-Uses `hyprlock` with a custom ASCII art splash rendered via `omarchy-branding-screensaver`.
-
-#### 📝 Changing the screensaver ASCII art
-
-The ASCII art is stored in:
-
-```
-~/.config/omarchy/branding/screensaver.txt
-```
-
-To change it:
-
-**Option A — Edit directly:**
-```bash
-omarchy branding screensaver text
-```
-This opens `screensaver.txt` in your editor. Replace or modify the ASCII art, save, and the screensaver updates automatically.
-
-**Option B — Generate from an image (PNG/SVG):**
-```bash
-omarchy branding screensaver image
-```
-Opens a file picker from `~/Pictures`. Picks a PNG or SVG and converts it to ASCII automatically.
-
-**Option C — Reset to Omarchy default logo:**
-```bash
-omarchy branding screensaver reset
-```
-
-> The screensaver.txt in this repo contains **my personal name in ASCII art**. Replace it with your own using one of the methods above before using this config.
-
----
-
-## Installation
-
-> Requires [Omarchy](https://github.com/basecamp/omarchy) to be installed first.
+<br/>
 
 ### 1. Aether theme
 ```bash
 cp -r theme/aether ~/.config/omarchy/themes/aether
-# Then activate it:
 omarchy theme set aether
 ```
 
@@ -113,51 +165,90 @@ omarchy theme set aether
 ```bash
 cp -r walker/themes/omarchy-default ~/.config/walker/themes/
 cp -r walker/themes/omarchy-menu    ~/.config/walker/themes/
+cp -r walker/themes/omarchy-apps    ~/.config/walker/themes/
 ```
 
-### 3. Walker override (forces TUI theme on Omarchy menu)
+### 3. Walker config
+> ⚠️ Replaces your existing `~/.config/walker/config.toml`
+```bash
+cp walker/config.toml ~/.config/walker/config.toml
+```
+
+### 4. Walker override
 ```bash
 cp overrides/omarchy-launch-walker ~/.config/omarchy/overrides/
 chmod +x ~/.config/omarchy/overrides/omarchy-launch-walker
 ```
 
-### 4. Screensaver branding
+### 5. Screensaver branding
 ```bash
 cp branding/screensaver.txt ~/.config/omarchy/branding/screensaver.txt
-# Or use your own (see "Changing the screensaver ASCII art" above)
 ```
 
-### 5. Waybar
-> ⚠️ Only copy if you want to **replace** your existing Waybar config entirely.
+### 6. Waybar
+> ⚠️ Replaces your existing Waybar config entirely
 ```bash
+mkdir -p ~/.config/waybar
 cp waybar/style.css    ~/.config/waybar/
 cp waybar/config.jsonc ~/.config/waybar/
 ```
 
+</details>
+
 ---
 
-## File Structure
+## 📁 File Structure
+
+<details>
+<summary><strong>View full tree</strong></summary>
+
+<br/>
 
 ```
 omarchy-tui-theme/
 ├── branding/
-│   └── screensaver.txt          # ASCII art splash (replace with yours)
+│   └── screensaver.txt              # ASCII art splash (replace with yours)
 ├── overrides/
-│   └── omarchy-launch-walker    # Forces omarchy-menu TUI theme in dmenu mode
+│   └── omarchy-launch-walker        # Forces omarchy-menu TUI theme in dmenu mode
+├── screenshots/
+│   ├── apps-launcher.png            # Apps launcher screenshot
+│   └── desktop-overview.png         # Full desktop screenshot
 ├── theme/
-│   └── aether/                  # Full Aether colorscheme for Omarchy
-│       ├── colors.toml
-│       ├── walker.css
-│       ├── waybar.css
-│       ├── hyprland.conf
-│       ├── hyprlock.conf
-│       └── ...
+│   └── aether/
+│       ├── backgrounds/
+│       │   └── wallpaper.jpg        # Desktop wallpaper
+│       ├── preview.png              # Omarchy theme picker preview
+│       ├── aether.zed.json          # Zed editor theme
+│       ├── alacritty.toml           # Alacritty terminal colors
+│       ├── btop.theme               # Btop resource monitor theme
+│       ├── chromium.theme           # Chromium browser theme
+│       ├── colors.toml              # Master color palette
+│       ├── ghostty.conf             # Ghostty terminal colors
+│       ├── gtk.css                  # GTK stylesheet
+│       ├── hyprland.conf            # Hyprland compositor config
+│       ├── hyprlock.conf            # Hyprlock screen lock config
+│       ├── icons.theme              # Icon theme
+│       ├── kitty.conf               # Kitty terminal colors
+│       ├── mako.ini                 # Mako notification daemon
+│       ├── neovim.lua               # Neovim colorscheme
+│       ├── swayosd.css              # SwayOSD overlay stylesheet
+│       ├── vencord.theme.css        # Vencord (Discord) theme
+│       ├── vscode.json              # VS Code color theme
+│       ├── walker.css               # Walker launcher stylesheet
+│       ├── warp.yaml                # Warp terminal theme
+│       ├── waybar.css               # Waybar stylesheet
+│       ├── wofi.css                 # Wofi launcher stylesheet
+│       └── zellij.kdl               # Zellij terminal multiplexer theme
 ├── walker/
+│   ├── config.toml                  # Walker config (theme, keybinds, providers)
 │   └── themes/
-│       ├── omarchy-default/     # Apps launcher (SUPER+SPACE)
+│       ├── omarchy-default/         # Apps launcher (SUPER+SPACE)
 │       │   ├── layout.xml
 │       │   └── style.css
-│       └── omarchy-menu/        # Omarchy menu (SUPER+ALT+SPACE)
+│       ├── omarchy-menu/            # Omarchy menu (SUPER+ALT+SPACE)
+│       │   ├── layout.xml
+│       │   └── style.css
+│       └── omarchy-apps/            # Alternative sectioned apps layout
 │           ├── layout.xml
 │           └── style.css
 └── waybar/
@@ -165,12 +256,29 @@ omarchy-tui-theme/
     └── style.css
 ```
 
+</details>
+
 ---
 
-## Dependencies
+## 📦 Dependencies
 
-- [Omarchy](https://github.com/basecamp/omarchy)
-- [Walker](https://github.com/abenz1267/walker) — application launcher
-- [Waybar](https://github.com/Alexays/Waybar)
-- [Hyprland](https://hyprland.org) + [Hyprlock](https://github.com/hyprwm/hyprlock)
-- JetBrainsMono Nerd Font
+| Dependency | Purpose |
+|------------|---------|
+| [Omarchy](https://github.com/basecamp/omarchy) | Base system (required) |
+| [Walker](https://github.com/abenz1267/walker) | Application launcher |
+| [Waybar](https://github.com/Alexays/Waybar) | Status bar |
+| [Hyprland](https://hyprland.org) + [Hyprlock](https://github.com/hyprwm/hyprlock) | Compositor + lock screen |
+| JetBrainsMono Nerd Font | Typography |
+
+---
+
+<div align="center">
+
+Built with ♥ on top of [Omarchy](https://github.com/basecamp/omarchy) by Basecamp
+
+<br/>
+
+> The wallpaper (`theme/aether/backgrounds/wallpaper.jpg`) is a personal image — replace it with your own before using.
+
+</div>
+
